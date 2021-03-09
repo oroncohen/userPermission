@@ -1,0 +1,20 @@
+
+<p-toast position="top-center"></p-toast>
+<div>
+  <h1>Page Permission</h1>
+  <div class="users">
+    <p-dropdown [options]="users" [(ngModel)]="selectedUser" placeholder="Select User " optionLabel="name" [showClear]="true"  (onChange)="getPermissionOfSelectedUser(selectedUser)"></p-dropdown>
+  </div>
+<div>
+
+  <p-listbox [disabled]="!selectedUser" [options]="pages" [(ngModel)]="selectedPages" [metaKeySelection]="false" [checkbox]="true" (onChange)="updatePermissionByUser()"
+             [filter]="true" [multiple]="true" optionLabel="name" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+    <ng-template let-page pTemplate="item">
+      <div class="pages-item">
+        <div>{{page.pageName}}</div>
+      </div>
+    </ng-template>
+  </p-listbox>
+</div>
+</div>
+
